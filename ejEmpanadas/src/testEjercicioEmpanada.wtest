@@ -1,0 +1,20 @@
+import ejercicioEmpanadas.*
+
+test "negocio pagar sueldo a galvan" {
+
+	negocio.pagarA(galvan)
+	assert.that(negocio.disponible() ==  35000)
+
+}
+
+test "negocio pagar sueldo a baigorria" {
+	negocio.pagarA(baigorria)
+	assert.equals(48500, negocio.disponible())
+}
+
+
+test "negocio pagar a galva y a baigorria" {
+	negocio.pagarA(baigorria)
+	negocio.pagarA(galvan)
+	assert.equals(33500, negocio.disponible())
+}
