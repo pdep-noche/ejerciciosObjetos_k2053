@@ -1,0 +1,29 @@
+import seguridadVial.*
+
+describe "group of tests" {
+	
+	const unAuto = new Auto(plusVelocidad = 30, tieneRuedaAux = true)
+	const conductor = new Conductor(vehiculo = unAuto, tieneRegistro = true)
+	const unaMoto = new Moto(velocidad = 130, cantEspejos = 2)
+
+	test "test conductor es seguro con auto" {
+		assert.that(conductor.esSeguro())
+	}
+	
+	test "test conductor es seguro con moto" {
+		conductor.vehiculo(unaMoto)
+		assert.that(conductor.esSeguro())
+		
+	}
+	
+	test "test conductor no seguro con auto" {
+		conductor.tieneRegistro(false)
+		assert.notThat(conductor.esSeguro())
+	}
+	
+	test "Test conductor no seguro con moto" {
+		unaMoto.cantEspejos(1)
+		conductor.vehiculo(unaMoto)
+		assert.notThat(conductor.esSeguro())
+	}
+}

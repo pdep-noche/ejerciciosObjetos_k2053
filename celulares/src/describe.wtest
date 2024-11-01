@@ -1,0 +1,13 @@
+import celular.*
+
+describe "group of tests" {
+	
+	const celular = new Celular()
+
+	test "test memoria libre" {
+		
+		celular.agregarAplicacion(calculadora)
+		assert.equals(990, celular.memoriaRamLibre() )
+
+	}
+}
